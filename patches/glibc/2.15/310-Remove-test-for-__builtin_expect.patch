@@ -1,13 +1,13 @@
 diff -urN a/configure b/configure
---- a/configure	2014-02-23 12:28:21.886628000 +0000
-+++ b/configure	2014-02-23 12:28:32.235942200 +0000
-@@ -7377,40 +7377,6 @@
+--- a/configure	2014-02-23 13:58:45.870886500 +0000
++++ b/configure	2014-02-23 13:58:56.452730200 +0000
+@@ -7035,38 +7035,6 @@
  fi
  fi
  
--{ $as_echo "$as_me:$LINENO: checking for __builtin_expect" >&5
+-{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for __builtin_expect" >&5
 -$as_echo_n "checking for __builtin_expect... " >&6; }
--if test "${libc_cv_gcc_builtin_expect+set}" = set; then
+-if ${libc_cv_gcc_builtin_expect+:} false; then :
 -  $as_echo_n "(cached) " >&6
 -else
 -  cat > conftest.c <<EOF
@@ -20,32 +20,30 @@ diff -urN a/configure b/configure
 -EOF
 -if { ac_try='${CC-cc} $CFLAGS $CPPFLAGS $LDFLAGS -nostdlib -nostartfiles
 -			    -o conftest conftest.c -lgcc >&5'
--  { (eval echo "$as_me:$LINENO: \"$ac_try\"") >&5
+-  { { eval echo "\"\$as_me\":${as_lineno-$LINENO}: \"$ac_try\""; } >&5
 -  (eval $ac_try) 2>&5
 -  ac_status=$?
--  $as_echo "$as_me:$LINENO: \$? = $ac_status" >&5
--  (exit $ac_status); }; }; then
+-  $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
+-  test $ac_status = 0; }; }; then
 -  libc_cv_gcc_builtin_expect=yes
 -else
 -  libc_cv_gcc_builtin_expect=no
 -fi
 -rm -f conftest*
 -fi
--{ $as_echo "$as_me:$LINENO: result: $libc_cv_gcc_builtin_expect" >&5
+-{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $libc_cv_gcc_builtin_expect" >&5
 -$as_echo "$libc_cv_gcc_builtin_expect" >&6; }
 -if test "$libc_cv_gcc_builtin_expect" = no; then
--  { { $as_echo "$as_me:$LINENO: error: support for __builtin_expect needed" >&5
--$as_echo "$as_me: error: support for __builtin_expect needed" >&2;}
--   { (exit 1); exit 1; }; }
+-  as_fn_error $? "support for __builtin_expect needed" "$LINENO" 5
 -fi
 -
- { $as_echo "$as_me:$LINENO: checking for __builtin_memset" >&5
+ { $as_echo "$as_me:${as_lineno-$LINENO}: checking for __builtin_memset" >&5
  $as_echo_n "checking for __builtin_memset... " >&6; }
- if test "${libc_cv_gcc_builtin_memset+set}" = set; then
+ if ${libc_cv_gcc_builtin_memset+:} false; then :
 diff -urN a/configure.in b/configure.in
---- a/configure.in	2014-02-23 12:28:21.887128100 +0000
-+++ b/configure.in	2014-02-23 12:28:32.239942700 +0000
-@@ -2172,28 +2172,6 @@
+--- a/configure.in	2014-02-23 13:58:45.871386600 +0000
++++ b/configure.in	2014-02-23 13:58:56.456730800 +0000
+@@ -2132,28 +2132,6 @@
  fi
  fi
  

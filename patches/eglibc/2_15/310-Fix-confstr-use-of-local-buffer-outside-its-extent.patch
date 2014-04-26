@@ -1,0 +1,55 @@
+diff -urN a/posix/confstr.c b/posix/confstr.c
+--- a/posix/confstr.c	2014-02-23 12:28:38.135191300 +0000
++++ b/posix/confstr.c	2014-02-23 12:28:46.839296600 +0000
+@@ -36,6 +36,10 @@
+   const char *string = "";
+   size_t string_len = 1;
+ 
++  /* Note that this buffer must be large enough for the longest strings
++     used below.  */
++  char restenvs[4 * sizeof "POSIX_V7_LPBIG_OFFBIG"];
++
+   switch (name)
+     {
+     case _CS_PATH:
+diff -urN a/posix/confstr.inc b/posix/confstr.inc
+--- a/posix/confstr.inc	2014-02-23 12:28:38.135191300 +0000
++++ b/posix/confstr.inc	2014-02-23 12:28:46.840796800 +0000
+@@ -29,7 +29,6 @@
+ 
+ 	 Currently this means all environment which the system allows.  */
+       {
+-	char restenvs[4 * sizeof "POSIX_V7_LPBIG_OFFBIG"];
+ 
+ 	string_len = 0;
+ #ifndef _POSIX_V7_ILP32_OFF32
+@@ -92,7 +91,6 @@
+ 
+ 	 Currently this means all environment which the system allows.  */
+       {
+-	char restenvs[4 * sizeof "POSIX_V6_LPBIG_OFFBIG"];
+ 
+ 	string_len = 0;
+ #ifndef _POSIX_V6_ILP32_OFF32
+@@ -155,7 +153,6 @@
+ 
+ 	 Currently this means all environment which the system allows.  */
+       {
+-	char restenvs[4 * sizeof "XBS5_LPBIG_OFFBIG"];
+ 
+ 	string_len = 0;
+ #ifndef _XBS5_ILP32_OFF32
+diff -urN a/posix/cross-getconf.c b/posix/cross-getconf.c
+--- a/posix/cross-getconf.c	2014-02-23 12:28:38.136191400 +0000
++++ b/posix/cross-getconf.c	2014-02-23 12:28:46.841796900 +0000
+@@ -93,6 +93,10 @@
+   const char *string = "";
+   size_t string_len = 1;
+ 
++  /* Note that this buffer must be large enough for the longest strings
++     used below.  */
++  char restenvs[4 * sizeof "POSIX_V7_LPBIG_OFFBIG"];
++
+   switch (name)
+     {
+ #include "confstr.inc"
