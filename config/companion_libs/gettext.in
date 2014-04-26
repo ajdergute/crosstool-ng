@@ -1,0 +1,19 @@
+# gettext options
+
+choice
+    bool
+    prompt "gettext version"
+# Don't remove next line
+# CT_INSERT_VERSION_BELOW
+
+config GETTEXT_V_0_18_3_1
+    bool
+    prompt "0.18.3.1"
+
+endchoice
+
+config GETTEXT_VERSION
+    string
+# Don't remove next line
+# CT_INSERT_VERSION_STRING_BELOW
+    default "0.18.3.1" if GETTEXT_V_0_18_3_1
