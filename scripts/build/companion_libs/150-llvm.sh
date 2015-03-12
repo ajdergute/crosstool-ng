@@ -144,10 +144,10 @@ do_llvm_backend() {
     fi
 
     if [ "${CT_DEBUGGABLE_TOOLCHAIN}" = "y" ]; then
-        OPTIM_CONFIG_FLAG="--enable-optimized=no"
+#        OPTIM_CONFIG_FLAG="--enable-optimized=no"
         OPTIM_MAKE_FLAG="ENABLE_OPTIMIZED=0"
     else
-        OPTIM_CONFIG_FLAG="--enable-optimized=yes"
+        OPTIM_CONFIG_FLAG="--enable-optimized"
         OPTIM_MAKE_FLAG="ENABLE_OPTIMIZED=1"
     fi
 
@@ -163,6 +163,7 @@ do_llvm_backend() {
         --prefix="${prefix}"          \
         --target=${CT_TARGET}         \
         ${OPTIM_CONFIG_FLAG}          \
+        ${CT_LLVM_ADDITIONAL_FLAGS}   \
 
     CT_DoLog EXTRA "Building LLVM"
     CT_DoExecLog ALL                  \

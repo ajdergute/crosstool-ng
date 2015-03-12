@@ -56,6 +56,18 @@ config LLVM_V_2_7
     
 endchoice
 
+config LLVM_ADDITIONAL_FLAGS
+    string
+    prompt "LLVM extra config"
+    default ""
+    help
+      Extra flags to pass onto ./configure when configuring. See also http://llvm.org/docs/  
+      GettingStarted.html#local-llvm-configuration
+
+      You can enter multiple arguments here, and arguments can contain spaces
+      if they are properly quoted (or escaped, but prefer quotes). Eg.:
+          --with-foo="1st arg with 4 spaces" --with-bar=2nd-arg-without-space
+
 config LLVM_VERSION
     string
 # Don't remove next line
