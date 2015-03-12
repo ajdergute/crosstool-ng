@@ -31,8 +31,10 @@ elif [ "${CT_LLVM_V_3_4_2}" = "y" ]; then
 elif [ "${CT_LLVM_V_3_5_0}" = "y" ]; then
     CT_LLVM_SUFFIX=".src"
 elif [ "${CT_LLVM_V_3_6_0}" = "y" ]; then
-    # This will be changed to release_36 when it's branched
-    # at that time, add CT_LLVM_V_3_7 on master.
+    CT_LLVM_SUFFIX=".src"
+elif [ "${CT_LLVM_V_3_7_0}" = "y" ]; then
+    # This will be changed to release_38 when it's branched
+    # at that time, add CT_LLVM_V_3_8 on master.
     LLVM_BRANCH="master"
 elif [ "${CT_LLVM_V_HEAD}" = "y" ]; then
     LLVM_BRANCH="master"
